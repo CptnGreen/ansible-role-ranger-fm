@@ -1,2 +1,6 @@
 ---
-# tasks file for ranger
+
+- include: root.yml
+  become: true
+
+- include: user.yml

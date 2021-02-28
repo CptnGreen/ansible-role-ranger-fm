@@ -1,2 +1,34 @@
 ---
-# defaults file for ranger
+
+ranger_yum_mandatory_packages:
+  - python  # optionally with wide-unicode support
+  - less
+ranger_yum_optional_packages:
+  - file
+  - sudo
+ranger_yum_enhancement_packages:
+  - ImageMagick  # convert (from imagemagick) to auto-rotate images and for SVG previews
+  # - ffmpegthumbnailer  # for video thumbnails
+  - highlight  # or bat or pygmentize for syntax highlighting of code
+  - atool  # or bsdtar, unrar and/or 7z to preview archives
+  - bsdtar  # or tar, unrar, unzip and/or zipinfo (and sed) to preview archives as their first image
+  - lynx  # or w3m or elinks to preview html pages
+  # - djvutxt  # for textual DjVu previews, ddjvu to preview as image
+  - calibre  # or epub-thumbnailer for image previews of ebooks
+  - transmission  # transmission-show for viewing BitTorrent information
+  - mediainfo  # or exiftool for viewing information about media files
+  - odt2txt  # for OpenDocument text files (odt, ods, odp and sxw)
+  - python  # or jq for JSON files
+  # - fontimage  # for font previews
+  - openscad  # for 3D model previews (stl, off, dxf, scad, csg)
+
+
+ranger_pip_mandatory_packages:
+  - curses-util  # curses
+ranger_pip_optional_packages:
+  - chardet
+  - python-bidi
+ranger_pip_enhancement_packages:
+  - img2txt  # (from caca-utils) for ASCII-art image previews
+  - ueberzug  # or w3mimgdisplay, mpv, iTerm2, kitty, terminology or urxvt for image previews
+  - pdftotext  # or mutool (and fmt) for textual pdf previews, pdftoppm to preview as image

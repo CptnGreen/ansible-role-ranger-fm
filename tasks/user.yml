@@ -1,0 +1,16 @@
+---
+
+- name: Ensure pip mandatory packages are installed.
+  pip:
+    name: "{{ item }}"
+  loop: "{{ ranger_pip_mandatory_packages }}"
+
+- name: Ensure pip optional packages are installed.
+  pip:
+    name: "{{ item }}"
+  loop: "{{ ranger_pip_optional_packages }}"
+
+# - name: Ensure pip enhancement packages are installed.
+#   pip:
+#     name: "{{ item }}"
+#   loop: "{{ ranger_pip_enhancement_packages }}"
