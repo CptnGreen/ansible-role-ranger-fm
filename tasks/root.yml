@@ -1,27 +1,4 @@
 ---
 
-- name: Ensure yum mandatory packages are installed.
-  yum:
-    name: "{{ ranger_yum_mandatory_packages }}"
-    state: present
-
-- name: Ensure yum optional packages are installed.
-  yum:
-    name: "{{ ranger_yum_optional_packages }}"
-    state: present
-
-- name: Ensure yum enhancement packages are installed.
-  yum:
-    name: "{{ ranger_yum_enhancement_packages }}"
-    state: present
-
-# need for some pip packages
-- name: Ensure 'Development tools' package group is installed.
-  yum:
-    name: "@Development tools"
-    state: present
-
-- name: Ensure ranger is installed.
-  yum:
-    name: ranger
-    state: present
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'

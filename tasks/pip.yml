@@ -1,0 +1,26 @@
+---
+
+- name: Ensure pip mandatory packages are installed.
+  pip:
+    name: "{{ item }}"
+    extra_args: --user
+  loop: "{{ ranger_pip_mandatory_packages }}"
+
+- name: Ensure pip optional packages are installed.
+  pip:
+    name: "{{ item }}"
+    extra_args: --user
+  loop: "{{ ranger_pip_optional_packages }}"
+  when: ranger_pip_install_optional_packages
+
+- name: Ensure pip enhancement packages are installed.
+  pip:
+    name: "{{ item }}"
+    extra_args: --user
+  loop: "{{ ranger_pip_enhancement_packages }}"
+  when: ranger_pip_install_enhancement_packages
+
+- name: Ensure ranger-rm pip package is installed.
+  pip:
+    name: "ranger-fm"
+    extra_args: --user

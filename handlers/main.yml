@@ -1,2 +1,4 @@
 ---
-# handlers file for ranger
+
+- name: Source bashrc. 
+  shell: source {{ ranger_bashrc_path }}

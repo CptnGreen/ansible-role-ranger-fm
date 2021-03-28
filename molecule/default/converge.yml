@@ -1,7 +1,11 @@
 ---
 - name: Converge
   hosts: all
+
+  vars:
+    ranger_bashrc_path: /root/.bashrc
+
   tasks:
     - name: "Include ranger"
       include_role:
-        name: "ranger"
+        name: "ranger-fm"

@@ -1,0 +1,11 @@
+---
+
+- name: Ensure useful alias is added.
+  ansible.builtin.lineinfile:
+    path: "{{ ranger_bashrc_path }}"
+    regexp: '^[\t ]*alias[\t ]*l=[\t ]*'
+    line: alias l='. ranger'
+    state: present
+    create: yes
+  notify:
+    - Source bashrc.
