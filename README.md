@@ -1,24 +1,19 @@
-ranger-fm
-=========
+# ranger-fm
 
-Installs ranger-rm on Ubuntu 20.04 and CentOS 8.
+Installs ranger-rm on Ubuntu 20.04 and CentOS 8
 
-Role Variables
---------------
+## Role Variables
 
-By default only minimal configuration is deployed.
+TODO
 
-Example Playbook
-----------------
+## Example Playbook
 
-See `molecule/default/converge.yml`.
+See `molecule/default/converge.yml`
 
-License
--------
+## License
 
 MIT
 
-Author Information
-------------------
+## Author Information
 
 Andrei Krasnoshchekov
