@@ -33,6 +33,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: "${{ github.repository }}"
+
+      # - name: vault_pass
+      #   run: echo <some-pass> > /home/ak/.vault_pass
+
       - name: molecule
         uses: robertdebock/molecule-action@2.6.17
         with:
