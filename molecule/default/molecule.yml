@@ -3,11 +3,27 @@ dependency:
   name: galaxy
 driver:
   name: docker
+
 platforms:
   - name: centos8-ranger-fm
-    image: docker.io/pycontribs/centos:8
-    pre_build_image: true
+    image: docker.io/centos:8
+    pre_build_image: false
+
+  - name: ubuntu2004-ranger-fm
+    image: docker.io/ubuntu:20.04
+    pre_build_image: false
+
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      vault_password_file: "/home/ak/.vault_pass"
+
 verifier:
   name: ansible
+
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8

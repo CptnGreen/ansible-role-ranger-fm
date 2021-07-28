@@ -1,4 +1,19 @@
 ---
 
-- include_tasks: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat'
+- name: "Ensure group {{ ranger_user_group }} is created"
+  group:
+    name: "{{ ranger_user_group }}"
+    state: present
+  when: ranger_create_group
+
+- name: "Ensure user {{ ranger_user_name }} is created"
+  user:
+    name: "{{ ranger_user_name }}"
+    shell: /bin/bash
+    groups: "{{ ranger_user_group }}"
+    password: "{{ ranger_user_pass }}"
+    create_home: yes
+  when: ranger_create_user
+
+- name: "Include OS-specific tasks"
+  include_tasks: setup-{{ ansible_os_family }}.yml

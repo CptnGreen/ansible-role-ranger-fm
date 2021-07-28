@@ -1,11 +1,26 @@
 ---
 
-- name: Ensure useful alias is added.
-  ansible.builtin.lineinfile:
+- name: "Ensure useful alias is in the .bashrc"
+  lineinfile:
     path: "{{ ranger_bashrc_path }}"
-    regexp: '^[\t ]*alias[\t ]*l=[\t ]*'
+    regexp: '^[\t ]*alias[\t ]*l[\t ]*=.*'
     line: alias l='. ranger'
     state: present
     create: yes
   notify:
-    - Source bashrc.
+    - Source bashrc
+
+- name: "Ensure ranger's config directory is present"
+  file:
+    path: "/home/{{ ranger_user_name }}/.config/ranger"
+    state: directory
+    owner: "{{ ranger_user_name }}"
+    group: "{{ ranger_user_group }}"
+
+- name: "Ensure ranger's custom config is deployed"
+  template:
+    src: rc.conf.j2
+    dest: "/home/{{ ranger_user_name }}/.config/ranger/rc.conf"
+    owner: "{{ ranger_user_name }}"
+    group: "{{ ranger_user_group }}"
+    mode: '0644'

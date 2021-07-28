@@ -1,4 +1,8 @@
 ---
 
-- name: Source bashrc. 
-  shell: source {{ ranger_bashrc_path }}
+# is this step needed at all?
+- name: "Source bashrc"
+  # echo hello to silence linter
+  shell: source {{ ranger_bashrc_path }} && echo hello
+  args:
+    executable: /bin/bash

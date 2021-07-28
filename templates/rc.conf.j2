@@ -1,0 +1,58 @@
+# ===================================================================
+# == Changed options
+# ===================================================================
+
+# Be aware of version control systems and display information.
+set vcs_aware true
+
+# Use one of the supported image preview protocols
+set preview_images true
+
+# BIDI support - try to properly display file names in RTL languages (Hebrew, Arabic).
+# Requires the python-bidi pip package
+set bidi_support true
+
+# Display the directory name in tabs?
+set dirname_in_tabs true
+
+# Enable the mouse support?
+set mouse_enabled false
+
+# Abbreviate $HOME with ~ in the titlebar (first line) of ranger?
+set tilde_in_titlebar true
+
+# ===================================================================
+# == Local Options
+# ===================================================================
+# You can set local options that only affect a single directory.
+
+# Examples:
+# setlocal path=~/downloads sort mtime
+
+# ===================================================================
+# == (Re)define some keys for the browser
+# ===================================================================
+
+map g/ cd /
+map gh cd ~
+map gg cd ~/Repos
+map ga cd ~/Repos/_ansible
+
+map gr cd /root
+map ge cd /etc
+map go cd /opt
+
+# --- ranger dirs
+map gRc cd ~/.config/ranger
+map gRs cd ~/.config/ranger
+map gRR eval fm.cd(ranger.RANGERDIR)
+map gR? cd /usr/share/doc/ranger
+
+# --- settings (configs)
+map gS cd ~/.config
+map gsr cd ~/.config/ranger
+map gss cd ~/.ssh
+
+# --- python
+map gv cd ~/.venv
+map gpv cd ~/.venv

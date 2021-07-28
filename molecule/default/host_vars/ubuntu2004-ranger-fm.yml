@@ -1,0 +1,32 @@
+---
+
+ranger_user_name: ak
+ranger_user_group: ak
+ranger_user_pass: !vault |
+                  $ANSIBLE_VAULT;1.1;AES256
+                  35666130626337616462646438643738633335653039643431646637333236363065333434333430
+                  6433666536346465303863376261363039646662646332640a336161353763646639633638356139
+                  32356433636132653031366635306565666437636635393332346138653235353133653232626165
+                  3738383362666639660a663666636261383838383961383430396465313265363764383165326339
+                  3364
+
+ranger_create_group: yes
+ranger_create_user: yes
+
+ranger_apt_mandatory_packages:
+  - libncurses5-dev    # for curses python module?
+  - libncursesw5-dev   # wide character support
+  - python3            #
+  - python3-pip        #
+  - less               # default pager
+
+ranger_apt_install_optional_packages: yes
+ranger_apt_optional_packages:
+  - file               # for determining file types
+  - sudo               # to use the "run as root" feature
+
+ranger_apt_install_enhancement_packages: yes
+ranger_apt_enhancement_packages:
+  - w3m                # to preview html pages and images
+  - jq                 # json parsing
+  - atool              # for dealing with archives

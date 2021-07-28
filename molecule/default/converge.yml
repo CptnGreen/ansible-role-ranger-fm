@@ -1,11 +1,24 @@
 ---
-- name: Converge
+
+- name: "Converge"
   hosts: all
 
-  vars:
-    ranger_bashrc_path: /root/.bashrc
-
   tasks:
-    - name: "Include ranger"
+    - name: "Include root tasks"
       include_role:
         name: "ranger-fm"
+        tasks_from: root.yml
+
+    - name: "Include user tasks"
+      include_role:
+        name: "ranger-fm"
+        tasks_from: user.yml
+      vars:
+        ansible_user: ak
+        ansible_user_password: !vault |
+                               $ANSIBLE_VAULT;1.1;AES256
+                               61623732643738656232393362633532353461383631353633356264383836633465633764646530
+                               3137306334383365636538646437353265633638336339630a396137353632353862366536633036
+                               34303164613665356233663730353439616339303264313730323766363832636363326665633163
+                               6238633631653462320a646437393064623931343066373431376162663633623261343830616561
+                               3736

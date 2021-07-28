@@ -1,27 +1,30 @@
 ---
 
-- name: Ensure yum mandatory packages are installed.
+- name: "Ensure yum mandatory packages are installed"
   yum:
     name: "{{ ranger_yum_mandatory_packages }}"
     state: present
 
-- name: Ensure yum optional packages are installed.
+- name: "Ensure yum optional packages are installed"
   yum:
     name: "{{ ranger_yum_optional_packages }}"
     state: present
   when: ranger_yum_install_optional_packages
 
-- name: Ensure yum enhancement packages are installed.
+- name: "Ensure yum enhancement packages are installed"
   yum:
     name: "{{ ranger_yum_enhancement_packages }}"
+    enablerepo:
+      - powertools
+      - epel
     state: present
   when: ranger_yum_install_enhancement_packages
 
-# need for some pip packages
-- name: Ensure 'Development tools' package group is installed.
-  yum:
-    name: "@Development tools"
-    state: present
-  when:
-    - ranger_yum_install_optional_packages
-    - ranger_yum_install_enhancement_packages
+# # need for some pip packages
+# - name: "Ensure 'Development tools' package group is installed"
+#   yum:
+#     name: "@Development tools"
+#     state: present
+#   when:
+#     - ranger_yum_install_optional_packages
+#     - ranger_yum_install_enhancement_packages
