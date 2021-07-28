@@ -26,10 +26,8 @@ jobs:
     strategy:
       matrix:
         image:
-          - debian
-          - centos
-          - fedora
-          - ubuntu
+          - centos:8
+          - ubuntu:20.04
     steps:
       - name: checkout
         uses: actions/checkout@v2
