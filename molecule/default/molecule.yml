@@ -15,9 +15,9 @@ platforms:
 
 provisioner:
   name: ansible
-  config_options:
-    defaults:
-      vault_password_file: "/home/ak/.vault_pass"
+  # config_options:
+  #   defaults:
+  #     vault_password_file: "/home/ak/.vault_pass"
 
 verifier:
   name: ansible
