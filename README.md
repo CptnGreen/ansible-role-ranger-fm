@@ -4,7 +4,7 @@ Installs ranger-rm on Ubuntu 20.04 and CentOS 8
 
 ## Role Variables
 
-TODO
+ToDo
 
 ## Example Playbook
 
